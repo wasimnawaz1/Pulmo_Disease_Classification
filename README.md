@@ -120,28 +120,10 @@ The **CNN model** achieved the best results overall, while LSTM and Transformer 
 
 ---
 
-## 🙏 Acknowledgements
-
-This project was inspired by \[inspiration/tutorial].
-Special thanks to \[professors, collaborators, or institutions].
-
----
-
 ## 📄 License
 
-This project is licensed under the **\[License Name]** – see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **\[MIT License]**.
 
 ---
 
-## 📞 Contact
-
-* **Name:** Wasim Nawaz
-* **GitHub:** [wasimnawaz1](https://github.com/wasimnawaz1)
-* **Email:** \[Your Email]
-
-```
-
----
-
-Do you want me to also generate a **`requirements.txt`** file (based on TensorFlow, numpy, pandas, etc.) so your repo becomes plug-and-play?
 ```
