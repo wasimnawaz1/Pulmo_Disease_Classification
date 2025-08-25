@@ -55,26 +55,6 @@ pip install -r requirements.txt
 
 ---
 
-## 📝 Usage
-
-### Training the Model
-
-To train the model from scratch, run:
-
-```bash
-python [training_script].py
-```
-
-### Running Inference
-
-To use the trained model for predictions:
-
-```bash
-python [inference_script].py --signal_file_path "path/to/your/signal_file.dat"
-```
-
----
-
 ## 📈 Model Performance & Key Findings
 
 This project evaluated CNN, LSTM, and Transformer models.
