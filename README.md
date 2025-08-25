@@ -1,576 +1,154 @@
-Pulmo Disease Classification
+Here’s your **GitHub Flavored Markdown (GFM)** `README.md` — cleanly formatted and ready to paste into your repo:
+
+````markdown
+# Pulmo Disease Classification
+
 A deep learning project for the non-contact diagnosis of respiratory diseases using Orthogonal Frequency Division Multiplexing (OFDM) signals.
 
-🌟 Project Overview
-This project introduces a novel, non-contact method for the classification of common respiratory diseases. Using a software-defined radio (SDR), a 5.23 GHz OFDM signal with 64 frequencies is transmitted through a patient's lungs. The unique breathing patterns associated with different diseases modulate this signal, which is then analyzed by a deep learning model to classify the patient's condition. This approach lays the foundation for non-invasive, AI-powered diagnostic tools in future 6G-enabled healthcare environments.
+---
 
-🗂️ The OFDM-Breathe Dataset
-This work is based on the OFDM-Breathe dataset, the first of its kind. It comprises 26,760 seconds of raw RF data collected from 220 subjects in a hospital setting. The dataset is categorized into six distinct classes:
+## 🌟 Project Overview
+This project introduces a novel, non-contact method for the classification of common respiratory diseases. Using a software-defined radio (SDR), a 5.23 GHz OFDM signal with 64 frequencies is transmitted through a patient's lungs. The unique breathing patterns associated with different diseases modulate this signal, which is then analyzed by a deep learning model to classify the patient's condition.  
 
-Class Label
+This approach lays the foundation for non-invasive, AI-powered diagnostic tools in future 6G-enabled healthcare environments.
 
-Value
+---
 
-Number of Subjects
+## 🗂️ The OFDM-Breathe Dataset
+This work is based on the **OFDM-Breathe dataset**, the first of its kind. It comprises **26,760 seconds of raw RF data** collected from **220 subjects** in a hospital setting. The dataset is categorized into six distinct classes:
 
-'Asthma'
+| Class Label | Value | Number of Subjects |
+|-------------|-------|---------------------|
+| Asthma      | 0     | 45                  |
+| COPD        | 1     | 43                  |
+| ILD         | 2     | 30                  |
+| PN          | 3     | 31                  |
+| TB          | 4     | 41                  |
+| Normal      | 5     | 30                  |
 
-0
+---
 
-45
+## 🛠️ Technologies & Libraries
+- **Python**
+- **TensorFlow / Keras** – Deep learning model building & training
+- **NumPy** – Numerical operations  
+- **Pandas** – Data handling & preprocessing  
+- **Matplotlib / Seaborn** – Visualization  
+- **Scikit-learn** – Model evaluation  
 
-'COPD'
+---
 
-1
-
-43
-
-'ILD'
-
-2
-
-30
-
-'PN'
-
-3
-
-31
-
-'TB'
-
-4
-
-41
-
-'Normal'
-
-5
-
-30
-
-🛠️ Technologies & Libraries
-This project uses the following key technologies and libraries:
-
-Python
-
-TensorFlow / Keras: For building and training the deep learning model.
-
-NumPy: For numerical operations.
-
-Pandas: For data handling and analysis.
-
-Matplotlib / Seaborn: For data visualization.
-
-Scikit-learn: For model evaluation metrics.
-
-🚀 Installation & Setup
+## 🚀 Installation & Setup
 Clone the repository:
-
+```bash
 git clone https://github.com/wasimnawaz1/Pulmo_Disease_Classification.git
 cd Pulmo_Disease_Classification
+````
 
 Create a virtual environment:
 
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+```
 
-Install the required packages:
+Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
-📝 Usage
-Training the Model
-To train the model from scratch, run the [Training Script Name] script:
+---
 
-python [script_name].py
+## 📝 Usage
 
-Running Inference
-To use the trained model for prediction on a new signal, use the [Inference Script Name] script:
+### Training the Model
 
-python [script_name].py --signal_file_path "path/to/your/signal_file.dat"
+To train the model from scratch, run:
 
-📈 Model Performance & Key Findings
-This project tested several machine and deep learning models for disease classification. The vanilla convolutional neural network (CNN) achieved the best overall performance. The LSTM and Transformer models also performed exceptionally well, showcasing the effectiveness of the proposed method.
+```bash
+python [training_script].py
+```
 
-Model Performance Metrics
-The CNN Model
-Class
+### Running Inference
 
-Accuracy
+To use the trained model for predictions:
 
-Precision
+```bash
+python [inference_script].py --signal_file_path "path/to/your/signal_file.dat"
+```
 
-Recall
+---
 
-F1-score
+## 📈 Model Performance & Key Findings
 
-TNR
+This project evaluated CNN, LSTM, and Transformer models.
+The **CNN model** achieved the best results overall, while LSTM and Transformer also performed exceptionally well.
 
-FPR
+### CNN Results
 
-FNR
+| Class  | Accuracy | Precision | Recall | F1-score | TNR  | FPR  | FNR  | MCC  | Jaccard | Support |
+| ------ | -------- | --------- | ------ | -------- | ---- | ---- | ---- | ---- | ------- | ------- |
+| Asthma | 0.99     | 0.98      | 0.99   | 0.98     | 1.00 | 0.00 | 0.02 | 0.98 | 0.97    | 23520   |
+| COPD   | 0.99     | 0.99      | 0.98   | 0.98     | 1.00 | 0.00 | 0.02 | 0.97 | 0.95    | 28224   |
+| ILD    | 0.98     | 1.00      | 0.97   | 0.99     | 1.00 | 0.00 | 0.03 | 0.97 | 0.96    | 27048   |
+| PN     | 0.99     | 1.00      | 0.98   | 0.99     | 1.00 | 0.00 | 0.03 | 0.97 | 0.95    | 19992   |
+| TB     | 0.99     | 0.98      | 0.99   | 0.98     | 0.99 | 0.01 | 0.02 | 0.97 | 0.96    | 16464   |
+| Normal | 1.00     | 1.00      | 1.00   | 1.00     | 1.00 | 0.00 | 0.01 | 0.98 | 0.97    | 27048   |
 
-MCC
+### LSTM Results
 
-Jaccard Index
+| Class  | Accuracy | Precision | Recall | F1-score | TNR  | FPR  | FNR  | MCC  | Jaccard | Support |
+| ------ | -------- | --------- | ------ | -------- | ---- | ---- | ---- | ---- | ------- | ------- |
+| Asthma | 0.99     | 0.99      | 0.98   | 0.99     | 1.00 | 0.00 | 0.01 | 0.98 | 0.97    | 23520   |
+| COPD   | 0.99     | 0.95      | 0.98   | 0.97     | 1.00 | 0.00 | 0.01 | 0.98 | 0.97    | 28224   |
+| ILD    | 0.98     | 1.00      | 0.96   | 0.98     | 1.00 | 0.00 | 0.02 | 0.99 | 0.98    | 27048   |
+| PN     | 0.98     | 0.99      | 0.97   | 0.98     | 1.00 | 0.00 | 0.01 | 0.98 | 0.97    | 19992   |
+| TB     | 0.99     | 0.99      | 0.99   | 0.99     | 1.00 | 0.00 | 0.01 | 0.98 | 0.97    | 16464   |
+| Normal | 1.00     | 0.99      | 1.00   | 1.00     | 1.00 | 0.00 | 0.01 | 0.98 | 0.97    | 27048   |
 
-Support
+### Transformer Results
 
-Asthma
+| Class  | Accuracy | Precision | Recall | F1-score | TNR  | FPR  | FNR  | MCC  | Jaccard | Support |
+| ------ | -------- | --------- | ------ | -------- | ---- | ---- | ---- | ---- | ------- | ------- |
+| Asthma | 0.98     | 1.00      | 0.98   | 0.99     | 0.99 | 0.01 | 0.02 | 0.97 | 0.95    | 23520   |
+| COPD   | 0.99     | 0.94      | 0.99   | 0.96     | 1.00 | 0.00 | 0.02 | 0.98 | 0.96    | 28224   |
+| ILD    | 0.97     | 0.99      | 0.96   | 0.97     | 0.99 | 0.01 | 0.03 | 0.96 | 0.94    | 27048   |
+| PN     | 0.99     | 0.99      | 0.98   | 0.98     | 1.00 | 0.00 | 0.02 | 0.98 | 0.97    | 19992   |
+| TB     | 0.99     | 0.99      | 0.99   | 0.99     | 0.99 | 0.01 | 0.03 | 0.97 | 0.95    | 16464   |
+| Normal | 1.00     | 1.00      | 1.00   | 1.00     | 1.00 | 0.00 | 0.03 | 0.97 | 0.95    | 27048   |
 
-0.99
+---
 
-0.98
+### 🔑 Key Findings
 
-0.99
+* An **ablation study** showed that reliable diagnosis (≈96% accuracy) is achievable using just **8 microwave frequencies**.
+* This proves the feasibility of integrating AI-powered diagnosis with efficient data transmission in **6G ISAC systems**.
 
-0.98
+---
 
-1.00
+## 🙏 Acknowledgements
 
-0.00
+This project was inspired by \[inspiration/tutorial].
+Special thanks to \[professors, collaborators, or institutions].
 
-0.02
+---
 
-0.98
+## 📄 License
 
-0.97
+This project is licensed under the **\[License Name]** – see the [LICENSE](LICENSE) file for details.
 
-23520
+---
 
-COPD
+## 📞 Contact
 
-0.99
+* **Name:** Wasim Nawaz
+* **GitHub:** [wasimnawaz1](https://github.com/wasimnawaz1)
+* **Email:** \[Your Email]
 
-0.99
+```
 
-0.98
+---
 
-0.98
-
-1.00
-
-0.00
-
-0.02
-
-0.97
-
-0.95
-
-28224
-
-ILD
-
-0.98
-
-1.00
-
-0.97
-
-0.99
-
-1.00
-
-0.00
-
-0.03
-
-0.97
-
-0.96
-
-27048
-
-PN
-
-0.99
-
-1.00
-
-0.98
-
-0.99
-
-1.00
-
-0.00
-
-0.03
-
-0.97
-
-0.95
-
-19992
-
-TB
-
-0.99
-
-0.98
-
-0.99
-
-0.98
-
-0.99
-
-0.01
-
-0.02
-
-0.97
-
-0.96
-
-16464
-
-Normal
-
-1.00
-
-1.00
-
-1.00
-
-1.00
-
-1.00
-
-0.00
-
-0.01
-
-0.98
-
-0.97
-
-27048
-
-The LSTM Model
-Class
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-TNR
-
-FPR
-
-FNR
-
-MCC
-
-Jaccard Index
-
-Support
-
-Asthma
-
-0.99
-
-0.99
-
-0.98
-
-0.99
-
-1.00
-
-0.00
-
-0.01
-
-0.98
-
-0.97
-
-23520
-
-COPD
-
-0.99
-
-0.95
-
-0.98
-
-0.97
-
-1.00
-
-0.00
-
-0.01
-
-0.98
-
-0.97
-
-28224
-
-ILD
-
-0.98
-
-1.00
-
-0.96
-
-0.98
-
-1.00
-
-0.00
-
-0.02
-
-0.99
-
-0.98
-
-27048
-
-PN
-
-0.98
-
-0.99
-
-0.97
-
-0.98
-
-1.00
-
-0.00
-
-0.01
-
-0.98
-
-0.97
-
-19992
-
-TB
-
-0.99
-
-0.99
-
-0.99
-
-0.99
-
-1.00
-
-0.00
-
-0.01
-
-0.98
-
-0.97
-
-16464
-
-Normal
-
-1.00
-
-0.99
-
-1.00
-
-1.00
-
-1.00
-
-0.00
-
-0.01
-
-0.98
-
-0.97
-
-27048
-
-The Transformer Model
-Class
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-score
-
-TNR
-
-FPR
-
-FNR
-
-MCC
-
-Jaccard Index
-
-Support
-
-Asthma
-
-0.98
-
-1.00
-
-0.98
-
-0.99
-
-0.99
-
-0.01
-
-0.02
-
-0.97
-
-0.95
-
-23520
-
-COPD
-
-0.99
-
-0.94
-
-0.99
-
-0.96
-
-1.00
-
-0.00
-
-0.02
-
-0.98
-
-0.96
-
-28224
-
-ILD
-
-0.97
-
-0.99
-
-0.96
-
-0.97
-
-0.99
-
-0.01
-
-0.03
-
-0.96
-
-0.94
-
-27048
-
-PN
-
-0.99
-
-0.99
-
-0.98
-
-0.98
-
-1.00
-
-0.00
-
-0.02
-
-0.98
-
-0.97
-
-19992
-
-TB
-
-0.99
-
-0.99
-
-0.99
-
-0.99
-
-0.99
-
-0.01
-
-0.03
-
-0.97
-
-0.95
-
-16464
-
-Normal
-
-1.00
-
-1.00
-
-1.00
-
-1.00
-
-1.00
-
-0.00
-
-0.03
-
-0.97
-
-0.95
-
-27048
-
-Key Findings
-An ablation study revealed a significant finding: reliable diagnosis with up to 96% accuracy is possible using just eight microwave frequencies. This demonstrates that the proposed AI-powered diagnostic algorithm can coexist with efficient data transmission, supporting the feasibility of future 6G Integrated Sensing and Communication (ISAC) systems.
-
-🙏 Acknowledgements
-This project was inspired by [inspiration or tutorial source]. Special thanks to [Anyone who helped, e.g., a professor or collaborator].
-
-📄 License
-This project is licensed under the [License Name] - see the LICENSE file for details.
-
-📞 Contact
-Name: Wasim Nawaz
-
-GitHub: wasimnawaz1
-
-Email: [Your Email]
+Do you want me to also generate a **`requirements.txt`** file (based on TensorFlow, numpy, pandas, etc.) so your repo becomes plug-and-play?
+```
