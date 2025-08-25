@@ -1,18 +1,11 @@
-Here’s your **GitHub Flavored Markdown (GFM)** `README.md` — cleanly formatted and ready to paste into your repo:
-
-````markdown
 # Pulmo Disease Classification
 
 A deep learning project for the non-contact diagnosis of respiratory diseases using Orthogonal Frequency Division Multiplexing (OFDM) signals.
-
----
 
 ## 🌟 Project Overview
 This project introduces a novel, non-contact method for the classification of common respiratory diseases. Using a software-defined radio (SDR), a 5.23 GHz OFDM signal with 64 frequencies is transmitted through a patient's lungs. The unique breathing patterns associated with different diseases modulate this signal, which is then analyzed by a deep learning model to classify the patient's condition.  
 
 This approach lays the foundation for non-invasive, AI-powered diagnostic tools in future 6G-enabled healthcare environments.
-
----
 
 ## 🗂️ The OFDM-Breathe Dataset
 This work is based on the **OFDM-Breathe dataset**, the first of its kind. It comprises **26,760 seconds of raw RF data** collected from **220 subjects** in a hospital setting. The dataset is categorized into six distinct classes:
@@ -26,7 +19,7 @@ This work is based on the **OFDM-Breathe dataset**, the first of its kind. It co
 | TB          | 4     | 41                  |
 | Normal      | 5     | 30                  |
 
----
+
 
 ## 🛠️ Technologies & Libraries
 - **Python**
