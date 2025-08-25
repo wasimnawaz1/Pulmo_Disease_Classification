@@ -5,7 +5,7 @@ A deep learning project for the non-contact diagnosis of respiratory diseases us
 ## 🌟 Project Overview
 This project introduces a novel, non-contact method for the classification of common respiratory diseases. Using a software-defined radio (SDR), a 5.23 GHz OFDM signal with 64 frequencies is transmitted through a patient's lungs. The unique breathing patterns associated with different diseases modulate this signal, which is then analyzed by a deep learning model to classify the patient's condition.  
 
-![Methodology](/Methodology and setup.png)
+![Methodology](Methodology.png)
 
 This approach lays the foundation for non-invasive, AI-powered diagnostic tools in future 6G-enabled healthcare environments.
 
