@@ -1,21 +1,53 @@
-# Pulmo Disease Classification
-A deep learning project to classify pulmonary diseases from chest X-ray images. This repository contains the code for data preprocessing, model training, and evaluation.
+Pulmo Disease Classification
+A deep learning project for the non-contact diagnosis of respiratory diseases using Orthogonal Frequency Division Multiplexing (OFDM) signals.
 
 🌟 Project Overview
-This project aims to automatically classify common pulmonary diseases, such as pneumonia, from chest X-ray images. The goal is to assist medical professionals by providing a fast and efficient tool for initial diagnosis, reducing the burden on radiologists and potentially saving lives. 
+This project introduces a novel, non-contact method for the classification of common respiratory diseases. Using a software-defined radio (SDR), a 5.23 GHz OFDM signal with 64 frequencies is transmitted through a patient's lungs. The unique breathing patterns associated with different diseases modulate this signal, which is then analyzed by a deep learning model to classify the patient's condition. This approach lays the foundation for non-invasive, AI-powered diagnostic tools in future 6G-enabled healthcare environments.
 
-Main stages of this project, Disease Monitoring and Classification using Non-Contact and Non-Invasive 6G ISAC (Integrated Sensing and Communication), include: 
- 1. Data collection →
- 2. Dataset preprocessing and signal processing
- 3. ML/DL modeling
- 4. evaluation
+🗂️ The OFDM-Breathe Dataset
+This work is based on the OFDM-Breathe dataset, the first of its kind. It comprises 26,760 seconds of raw RF data collected from 220 subjects in a hospital setting. The dataset is categorized into six distinct classes:
 
-🗂️ Dataset
-The model is trained on the [Dataset Name] dataset, which consists of chest X-ray images categorized into [Number] classes: [Class 1], [Class 2], [Class 3], etc.
+Class Label
 
-Source: [Link to dataset source]
+Value
 
-Total Images: [Total number of images]
+Number of Subjects
+
+'Asthma'
+
+0
+
+45
+
+'COPD'
+
+1
+
+43
+
+'ILD'
+
+2
+
+30
+
+'PN'
+
+3
+
+31
+
+'TB'
+
+4
+
+41
+
+'Normal'
+
+5
+
+30
 
 🛠️ Technologies & Libraries
 This project uses the following key technologies and libraries:
@@ -47,8 +79,6 @@ Install the required packages:
 
 pip install -r requirements.txt
 
-(Note: If you don't have a requirements.txt file, you can manually install the libraries listed above.)
-
 📝 Usage
 Training the Model
 To train the model from scratch, run the [Training Script Name] script:
@@ -56,22 +86,481 @@ To train the model from scratch, run the [Training Script Name] script:
 python [script_name].py
 
 Running Inference
-To use the trained model for prediction on a new image, use the [Inference Script Name] script:
+To use the trained model for prediction on a new signal, use the [Inference Script Name] script:
 
-python [script_name].py --image_path "path/to/your/image.jpg"
+python [script_name].py --signal_file_path "path/to/your/signal_file.dat"
 
-📈 Model Performance
-The final model achieved the following performance metrics on the test dataset:
+📈 Model Performance & Key Findings
+This project tested several machine and deep learning models for disease classification. The vanilla convolutional neural network (CNN) achieved the best overall performance. The LSTM and Transformer models also performed exceptionally well, showcasing the effectiveness of the proposed method.
 
-Accuracy: [Accuracy Score]%
+Model Performance Metrics
+The CNN Model
+Class
 
-Precision: [Precision Score]%
+Accuracy
 
-Recall: [Recall Score]%
+Precision
 
-F1-Score: [F1-Score]%
+Recall
 
-(You can add a link to a confusion matrix or a plot of the training history here.)
+F1-score
+
+TNR
+
+FPR
+
+FNR
+
+MCC
+
+Jaccard Index
+
+Support
+
+Asthma
+
+0.99
+
+0.98
+
+0.99
+
+0.98
+
+1.00
+
+0.00
+
+0.02
+
+0.98
+
+0.97
+
+23520
+
+COPD
+
+0.99
+
+0.99
+
+0.98
+
+0.98
+
+1.00
+
+0.00
+
+0.02
+
+0.97
+
+0.95
+
+28224
+
+ILD
+
+0.98
+
+1.00
+
+0.97
+
+0.99
+
+1.00
+
+0.00
+
+0.03
+
+0.97
+
+0.96
+
+27048
+
+PN
+
+0.99
+
+1.00
+
+0.98
+
+0.99
+
+1.00
+
+0.00
+
+0.03
+
+0.97
+
+0.95
+
+19992
+
+TB
+
+0.99
+
+0.98
+
+0.99
+
+0.98
+
+0.99
+
+0.01
+
+0.02
+
+0.97
+
+0.96
+
+16464
+
+Normal
+
+1.00
+
+1.00
+
+1.00
+
+1.00
+
+1.00
+
+0.00
+
+0.01
+
+0.98
+
+0.97
+
+27048
+
+The LSTM Model
+Class
+
+Accuracy
+
+Precision
+
+Recall
+
+F1-score
+
+TNR
+
+FPR
+
+FNR
+
+MCC
+
+Jaccard Index
+
+Support
+
+Asthma
+
+0.99
+
+0.99
+
+0.98
+
+0.99
+
+1.00
+
+0.00
+
+0.01
+
+0.98
+
+0.97
+
+23520
+
+COPD
+
+0.99
+
+0.95
+
+0.98
+
+0.97
+
+1.00
+
+0.00
+
+0.01
+
+0.98
+
+0.97
+
+28224
+
+ILD
+
+0.98
+
+1.00
+
+0.96
+
+0.98
+
+1.00
+
+0.00
+
+0.02
+
+0.99
+
+0.98
+
+27048
+
+PN
+
+0.98
+
+0.99
+
+0.97
+
+0.98
+
+1.00
+
+0.00
+
+0.01
+
+0.98
+
+0.97
+
+19992
+
+TB
+
+0.99
+
+0.99
+
+0.99
+
+0.99
+
+1.00
+
+0.00
+
+0.01
+
+0.98
+
+0.97
+
+16464
+
+Normal
+
+1.00
+
+0.99
+
+1.00
+
+1.00
+
+1.00
+
+0.00
+
+0.01
+
+0.98
+
+0.97
+
+27048
+
+The Transformer Model
+Class
+
+Accuracy
+
+Precision
+
+Recall
+
+F1-score
+
+TNR
+
+FPR
+
+FNR
+
+MCC
+
+Jaccard Index
+
+Support
+
+Asthma
+
+0.98
+
+1.00
+
+0.98
+
+0.99
+
+0.99
+
+0.01
+
+0.02
+
+0.97
+
+0.95
+
+23520
+
+COPD
+
+0.99
+
+0.94
+
+0.99
+
+0.96
+
+1.00
+
+0.00
+
+0.02
+
+0.98
+
+0.96
+
+28224
+
+ILD
+
+0.97
+
+0.99
+
+0.96
+
+0.97
+
+0.99
+
+0.01
+
+0.03
+
+0.96
+
+0.94
+
+27048
+
+PN
+
+0.99
+
+0.99
+
+0.98
+
+0.98
+
+1.00
+
+0.00
+
+0.02
+
+0.98
+
+0.97
+
+19992
+
+TB
+
+0.99
+
+0.99
+
+0.99
+
+0.99
+
+0.99
+
+0.01
+
+0.03
+
+0.97
+
+0.95
+
+16464
+
+Normal
+
+1.00
+
+1.00
+
+1.00
+
+1.00
+
+1.00
+
+0.00
+
+0.03
+
+0.97
+
+0.95
+
+27048
+
+Key Findings
+An ablation study revealed a significant finding: reliable diagnosis with up to 96% accuracy is possible using just eight microwave frequencies. This demonstrates that the proposed AI-powered diagnostic algorithm can coexist with efficient data transmission, supporting the feasibility of future 6G Integrated Sensing and Communication (ISAC) systems.
 
 🙏 Acknowledgements
 This project was inspired by [inspiration or tutorial source]. Special thanks to [Anyone who helped, e.g., a professor or collaborator].
